@@ -13,7 +13,10 @@ const App = () => {
 
   return (
     <div>
-      <Router>
+      <Router future={{
+    v7_startTransition: true,
+    v7_relativeSplatPath: true,
+  }}>
         <div className='flex relative dark:bg-main-dark-bg'>
           <div className='fixed right-4 bottom-4' style={{zIndex: "1000"}}>
             <TooltipComponent content={"setting"} position='top'>
@@ -38,7 +41,7 @@ const App = () => {
             <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
               <NavBar />
             </div>
-          </div>
+          
           <div>
             <Routes>
               {/* Dashboard */}
@@ -66,6 +69,7 @@ const App = () => {
               <Route path='/pyramid' element={<Pyramid />} />
               <Route path='/stacked' element={<Stacked />} />
             </Routes>
+          </div>
           </div>
         </div>
       </Router>
