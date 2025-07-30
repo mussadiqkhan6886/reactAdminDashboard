@@ -7,8 +7,11 @@ import { useStateContext } from '../contexts/ContextProvider'
 import image from "../data/5124556.jpg"
 
 const Ecommerce = () => {
+
+  const {activeMenu} = useStateContext()
+
   return (
-    <div className='mt-12 '>
+    <div className={`mt-12 ${activeMenu ? "md:w-[90%]" : "w-full"}`}>
       <div className='flex flex-wrap lg:flex-nowrap justify-center'>
         <div className={`
             bg-white dark:text-gray-700 dark:bg-secondary-dark-bg 
@@ -29,7 +32,7 @@ const Ecommerce = () => {
         </div>
         <div className='flex m-3 flex-wrap justify-center gap-1 item-center'>
           {earningData.map(item => (
-            <div key={item.title} className='bg-white dark:text-gray-700 dark:bg-secondary-dark-bg md:w-56 p-4 pt-9 rounded-2xl'>
+            <div key={item.title} className='bg-white dark:text-gray-700 dark:bg-secondary-dark-bg md:w-45 p-4 pt-9 rounded-2xl'>
               <button type='button' style={{color: item.iconColor, backgroundColor: item.iconBg}} className='text-2xl opacity-0.9 rounded-full p-4 hover:drop-shadow-xl'>
                 {item.icon}
               </button>
@@ -46,7 +49,7 @@ const Ecommerce = () => {
           ))}
         </div>
       </div>
-      <div className='flex gap-10 flex-wrap justify-center '>
+      <div className={`flex gap-10 flex-wrap justify-center `}>
           <div className='bg-white dark:text-gray-700 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780'>
             <div className='flex justify-between'>
               <p className='text-xl font-semibold'>Revenue Updates</p>
@@ -76,8 +79,8 @@ const Ecommerce = () => {
                 </p>
                 <p className='text-gray-500 mt-1'>Expense</p>
               </div>
-              <div className='mt-8' style={{background: "white"}}>
-                <SparkLine currentColor="blue" id="line-sparkline" type="Line" height="80px" width="250px" data={SparklineAreaData} color="blue" />
+              <div className="mt-5">
+                <SparkLine currentColor="black" id="line-sparkLine" type="Line" height="100px" width="270px" data={SparklineAreaData} color="black" />ss
               </div>
               </div>
             </div>
